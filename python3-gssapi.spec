@@ -63,14 +63,11 @@ Requires:       %{python3}-decorator
 
 
 %files -n %{python3}-gssapi
-%doc README.txt
-%license LICENSE.txt
+%doc README.txt LICENSE.txt
 %{python3_sitearch}/gssapi
 %{python3_sitearch}/gssapi-%{version}-py%{python3_version}.egg-info
 
 
 %changelog
 * Thu Jan 04 2017 Robbie Harwood <rharwood@redhat.com> - 1.3.0-1
-- Initial import
-- Resolves: #1529318
-- Resolves: #1531288
+- Minor changes to el7 to enable building on el6
