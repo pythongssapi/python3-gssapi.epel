@@ -7,7 +7,7 @@
 
 Name:           python3-gssapi
 Version:        1.3.0
-Release:        1%{?dist}
+Release:        3%{?dist}
 Summary:        Python 3 Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
@@ -59,13 +59,17 @@ RFC 2743, as well as multiple extensions.
 %endif
 
 
-%files -n %{python3}-gssapi
+%files
 %doc README.txt LICENSE.txt
 %{python3_sitearch}/gssapi
 %{python3_sitearch}/gssapi-%{version}-py%{python3_version}.egg-info
 
 
 %changelog
+* Tue Sep 24 2019 Robbie Harwood <Mrharwood@redhat.com> - 1.3.0-3
+- More of the same
+- Resolves: #1755043
+
 * Tue Sep 24 2019 Robbie Harwood <Mrharwood@redhat.com> - 1.3.0-2
 - Try again at making the specfile work
 - Resolves: #1755043
