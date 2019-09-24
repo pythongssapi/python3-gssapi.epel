@@ -16,6 +16,9 @@ Source0:        https://github.com/pythongssapi/%{mname}/releases/download/v%{ve
 
 # Patches
 
+Requires:       %{python3}-six
+Requires:       %{python3}-decorator
+
 BuildRequires:  krb5-devel >= 1.10
 BuildRequires:  krb5-libs >= 1.10
 BuildRequires:  %{python3}-devel
@@ -36,12 +39,6 @@ which more closely matches RFC 2743.  Includes support for\
 RFC 2743, as well as multiple extensions.
 
 %description %_description
-
-%package -n %{python3}-gssapi
-Summary: %summary
-Requires:       %{python3}-six
-Requires:       %{python3}-decorator
-%description -n %{python3}-gssapi %_description
 
 
 %prep
@@ -69,5 +66,9 @@ Requires:       %{python3}-decorator
 
 
 %changelog
-* Thu Jan 04 2017 Robbie Harwood <rharwood@redhat.com> - 1.3.0-1
+* Tue Sep 24 2019 Robbie Harwood <Mrharwood@redhat.com> - 1.3.0-2
+- Try again at making the specfile work
+- Resolves: #1755043
+
+* Thu Jan 10 2017 Robbie Harwood <rharwood@redhat.com> - 1.3.0-1
 - Minor changes to el7 to enable building on el6
