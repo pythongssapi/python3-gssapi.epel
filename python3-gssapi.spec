@@ -7,7 +7,7 @@
 
 Name:           python3-gssapi
 Version:        1.3.0
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Python 3 Bindings for GSSAPI (RFC 2743/2744 and extensions)
 
 License:        ISC
@@ -15,9 +15,6 @@ URL:            https://github.com/pythongssapi/%{mname}
 Source0:        https://github.com/pythongssapi/%{mname}/releases/download/v%{version}/%{mname}-%{version}.tar.gz
 
 # Patches
-
-Requires:       %{python3}-six
-Requires:       %{python3}-decorator
 
 BuildRequires:  krb5-devel >= 1.10
 BuildRequires:  krb5-libs >= 1.10
@@ -40,6 +37,12 @@ RFC 2743, as well as multiple extensions.
 
 %description %_description
 
+%package -n %{python3}-gssapi
+Summary: %summary
+Requires:       %{python3}-six
+Requires:       %{python3}-decorator
+%description -n %{python3}-gssapi %_description
+
 
 %prep
 %setup -q -n %{mname}-%{version}
@@ -59,18 +62,22 @@ RFC 2743, as well as multiple extensions.
 %endif
 
 
-%files
+%files -n %{python3}-gssapi
 %doc README.txt LICENSE.txt
 %{python3_sitearch}/gssapi
 %{python3_sitearch}/gssapi-%{version}-py%{python3_version}.egg-info
 
 
 %changelog
-* Tue Sep 24 2019 Robbie Harwood <Mrharwood@redhat.com> - 1.3.0-3
+* Thu Oct 31 2019 Robbie Harwood <rharwood@redhat.com> - 1.3.0-4
+- Fix workaround so that we provide python34-gssapi
+- Resolves: #1763080
+
+* Tue Sep 24 2019 Robbie Harwood <rharwood@redhat.com> - 1.3.0-3
 - More of the same
 - Resolves: #1755043
 
-* Tue Sep 24 2019 Robbie Harwood <Mrharwood@redhat.com> - 1.3.0-2
+* Tue Sep 24 2019 Robbie Harwood <rharwood@redhat.com> - 1.3.0-2
 - Try again at making the specfile work
 - Resolves: #1755043
 
